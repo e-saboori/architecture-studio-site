@@ -1,0 +1,11 @@
+# Inspiration/reference files copied from Downloads.
+assets/inspiration-loftgarten.jpg
+assets/inspiration-video.mp4
+assets/inspiration-goodfit.jpg
+
+# Local OS/editor noise.
+.DS_Store
+Thumbs.db
+.vscode/
+.local-server.ps1
+server-error.log

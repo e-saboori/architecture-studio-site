@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Aurel Studio logo">
+  <rect width="120" height="120" rx="60" fill="#050504"/>
+  <path d="M30 83L57 24h8l25 59H76l-5-13H49l-5 13H30zm23-24h14l-7-18-7 18z" fill="#ffffff"/>
+  <path d="M27 92h66" stroke="#e7b86d" stroke-width="7" stroke-linecap="round"/>
+</svg>
