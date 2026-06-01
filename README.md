@@ -6,6 +6,7 @@ Responsive static website for ECONSET Design.
 
 - `index.html`
 - `about.html`
+- `services.html`
 - `contact.html`
 - `styles.css`
 - `script.js`
