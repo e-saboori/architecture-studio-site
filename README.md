@@ -1,12 +1,16 @@
 # ECONSET Architecture
 
-Responsive static website for ECONSET Architecture.
+Responsive static website for ECONSET Design.
 
 ## Files
 
 - `index.html`
+- `about.html`
+- `services.html`
+- `process.html`
+- `contact.html`
 - `styles.css`
 - `script.js`
 - `assets/`
 
-The image files in `assets/` are replaceable local placeholders.
+The site uses the provided ECONSET logo and founder portrait.
