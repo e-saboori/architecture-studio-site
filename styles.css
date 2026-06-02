@@ -143,7 +143,7 @@ p, h1, h2, h3, a, span { overflow-wrap: break-word; }
     linear-gradient(90deg, rgba(247,246,243,0.97) 0%, rgba(247,246,243,0.86) 28%, rgba(247,246,243,0.18) 58%, rgba(247,246,243,0) 100%),
     url("assets/hero-exterior.jpg");
   background-size: cover;
-  background-position: calc(100% + 90px) center;
+  background-position: calc(100% + 20px) center;
   background-repeat: no-repeat;
   transform: scale(1);
   animation: imageSettle 720ms var(--ease-luxe) both;
@@ -415,11 +415,12 @@ h3 { font-size: 16px; font-weight: 500; }
 .process-copy {
   max-width: 780px;
   margin: 12px auto 42px;
-  text-align: center;
+  text-align: justify;
 }
 .process-heading {
   margin-bottom: 24px;
   font-size: clamp(38px, 5vw, 66px);
+  text-align: center;
 }
 
 .narrative {
@@ -429,6 +430,7 @@ h3 { font-size: 16px; font-weight: 500; }
   margin: 0 auto;
 }
 .narrative h2 { margin-bottom: 8px; }
+.narrative p { text-align: justify; }
 .profile-link {
   min-height: 44px;
   padding: 0 18px;
@@ -457,6 +459,7 @@ h3 { font-size: 16px; font-weight: 500; }
 }
 .contact-details {
   display: grid;
+  grid-template-rows: repeat(3, auto) 1fr auto;
   align-content: start;
   gap: 22px;
   padding-right: clamp(34px, 6vw, 78px);
@@ -465,8 +468,9 @@ h3 { font-size: 16px; font-weight: 500; }
 }
 .contact-form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px 24px;
+  grid-template-columns: 1fr;
+  align-content: start;
+  gap: 12px;
   padding-left: clamp(34px, 6vw, 78px);
   border-left: 1px solid var(--color-line);
   font-size: clamp(16px, 1.35vw, 18px);
@@ -492,8 +496,8 @@ h3 { font-size: 16px; font-weight: 500; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.contact-details .button { margin-top: 18px; width: fit-content; }
-.contact-form label { display: grid; gap: 8px; color: var(--color-muted); font-size: inherit; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.contact-details .button { align-self: end; width: fit-content; }
+.contact-form label { display: grid; gap: 4px; color: var(--color-muted); font-size: inherit; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-form input, .contact-form textarea {
   width: 100%;
   border: 0;
@@ -502,13 +506,13 @@ h3 { font-size: 16px; font-weight: 500; }
   color: var(--color-ink);
   font: inherit;
   outline: none;
-  padding: 14px 0;
-  min-height: 48px;
+  padding: 8px 0;
+  min-height: 34px;
 }
-.contact-form textarea { min-height: 128px; }
+.contact-form textarea { height: 78px; min-height: 78px; }
 .contact-form textarea { resize: vertical; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--color-ink); }
-.contact-form .button { width: fit-content; margin-top: 12px; cursor: pointer; }
+.contact-form .button { width: fit-content; margin-top: 0; cursor: pointer; }
 .form-helper {
   max-width: 460px;
   color: var(--color-muted);
@@ -620,7 +624,7 @@ h3 { font-size: 16px; font-weight: 500; }
       linear-gradient(180deg, rgba(247,246,243,0.90) 0%, rgba(247,246,243,0.78) 35%, rgba(247,246,243,0.28) 72%, rgba(247,246,243,0.82) 100%),
       url("assets/hero-exterior.jpg");
     background-size: cover;
-    background-position: calc(100% + 90px) center;
+    background-position: calc(100% + 20px) center;
     background-repeat: no-repeat;
   }
   .hero h1 { font-size: clamp(34px, 11vw, 46px); margin-bottom: 22px; }

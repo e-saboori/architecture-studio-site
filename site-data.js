@@ -129,8 +129,8 @@ window.ECONSET_DATA = {
       form: {
         fields: [
           { label: "Name", name: "name", type: "text", autocomplete: "name", required: true },
-          { label: "Email", name: "email", type: "email", autocomplete: "email", required: true },
-          { label: "Phone", name: "phone", type: "tel", autocomplete: "tel" }
+          { label: "Phone", name: "phone", type: "tel", autocomplete: "tel" },
+          { label: "Email", name: "email", type: "email", autocomplete: "email", required: true }
         ],
         messageLabel: "Message",
         messageRequired: true,
