@@ -122,7 +122,7 @@ function bindContactForm() {
     }
 
     const formData = new FormData(form);
-    const subject = encodeURIComponent(`Project inquiry from ${formData.get("name") || "website visitor"}`);
+    const subject = encodeURIComponent("Consultation session");
     const fieldLines = [...form.querySelectorAll("input")].map((input) => {
       const label = input.closest("label")?.querySelector("span")?.textContent || input.name;
       return `${label}: ${formData.get(input.name) || ""}`;

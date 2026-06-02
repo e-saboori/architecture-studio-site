@@ -183,7 +183,7 @@ p, h1, h2, h3, a, span { overflow-wrap: break-word; }
 .hero-note {
   padding-top: 16px;
   border-top: 1px solid var(--color-line);
-  font-size: 20px !important;
+  font-size: 24px !important;
   font-weight: 500;
 }
 
@@ -738,8 +738,8 @@ h3 { font-size: 16px; font-weight: 500; }
   }
   body.menu-open .menu-button span:first-child { transform: translateY(2.5px) rotate(38deg); }
   body.menu-open .menu-button span:last-child { transform: translateY(-2.5px) rotate(-38deg); }
-  .logo { gap: 9px; font-size: 13px; }
-  .logo img { width: 28px; height: 28px; }
+  .logo { gap: 10px; font-size: 15px; }
+  .logo img { width: 32px; height: 32px; }
   .hero {
     min-height: 620px;
     padding: 96px 26px 48px;
