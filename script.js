@@ -18,7 +18,7 @@ const site = {
   footer: {
     copyright: "\u00A9 2026 ECONSET Design",
     ctaLabel: "Book Consultation",
-    ctaHref: "contact.html"
+    ctaHref: "mailto:Ehsan.ghassemlou@gmail.com?subject=Consultation%20session"
   }
 };
 
@@ -97,6 +97,30 @@ function bindContactForm() {
     event.preventDefault();
 
     const form = event.currentTarget;
+    const phone = form.elements.phone;
+    const email = form.elements.email;
+    const phoneValue = phone?.value.trim() || "";
+    const emailValue = email?.value.trim() || "";
+    const phoneDigits = phoneValue.replace(/\D/g, "");
+    const phoneIsValid = Boolean(phoneValue) && phoneDigits.length >= 7 && /^[+()\d\s.-]+$/.test(phoneValue);
+    const emailIsValid = Boolean(emailValue) && email.checkValidity();
+
+    phone?.setCustomValidity("");
+    email?.setCustomValidity("");
+
+    if (!phoneIsValid && !emailIsValid) {
+      email?.setCustomValidity("Please enter either a valid email or phone number.");
+    }
+
+    if (phoneValue && !phoneIsValid) {
+      phone?.setCustomValidity("Please enter a valid phone number.");
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     const formData = new FormData(form);
     const subject = encodeURIComponent(`Project inquiry from ${formData.get("name") || "website visitor"}`);
     const fieldLines = [...form.querySelectorAll("input")].map((input) => {
