@@ -155,26 +155,29 @@ function contactIcon(type) {
 
 function renderContact(main) {
   const contact = data.pages.contact;
+  const contactHeroParts = contact.hero.body.split(" with the next step.");
   main.innerHTML = `
     <section class="page-hero contact-hero">
       <div>
         <h1>${escapeHtml(contact.hero.heading)}</h1>
-        <p>${escapeHtml(contact.hero.body)}</p>
+        <p class="contact-hero-copy"><span>${escapeHtml(contactHeroParts[0])}</span><span>with the next step.</span></p>
       </div>
       <img src="${escapeHtml(contact.hero.image)}" alt="${escapeHtml(contact.hero.imageAlt)}" />
     </section>
 
     <section class="section contact-grid reveal">
       <div class="contact-details">
-        <a class="contact-item" href="mailto:${escapeHtml(data.brand.email)}">
-          ${contactIcon("email")}<span>${escapeHtml(data.brand.email)}</span>
-        </a>
-        <a class="contact-item" href="tel:${escapeHtml(data.brand.phoneHref)}">
-          ${contactIcon("phone")}<span>${escapeHtml(data.brand.phone)}</span>
-        </a>
-        <a class="contact-item" href="${escapeHtml(data.brand.addressHref)}" target="_blank" rel="noreferrer">
-          ${contactIcon("location")}<span>${escapeHtml(data.brand.address)}</span>
-        </a>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:${escapeHtml(data.brand.email)}">
+            ${contactIcon("email")}<span>${escapeHtml(data.brand.email)}</span>
+          </a>
+          <a class="contact-item" href="tel:${escapeHtml(data.brand.phoneHref)}">
+            ${contactIcon("phone")}<span>${escapeHtml(data.brand.phone)}</span>
+          </a>
+          <a class="contact-item" href="${escapeHtml(data.brand.addressHref)}" target="_blank" rel="noreferrer">
+            ${contactIcon("location")}<span>${escapeHtml(data.brand.address)}</span>
+          </a>
+        </div>
         <a class="button" href="mailto:${escapeHtml(data.brand.email)}">${escapeHtml(contact.form.consultationLabel)}</a>
       </div>
 
