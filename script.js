@@ -129,9 +129,7 @@ function renderAbout(main) {
         <p class="section-label">${escapeHtml(about.hero.label)}</p>
         <h1>${escapeHtml(about.hero.heading)}</h1>
       </div>
-      <div class="image-edge-fade">
-        <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
-      </div>
+      <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
     </section>
 
     <section class="section narrative reveal">
@@ -174,9 +172,9 @@ function renderContact(main) {
         <a class="contact-item" href="tel:${escapeHtml(data.brand.phoneHref)}">
           ${contactIcon("phone")}<span>${escapeHtml(data.brand.phone)}</span>
         </a>
-        <p class="contact-item">
+        <a class="contact-item" href="${escapeHtml(data.brand.addressHref)}" target="_blank" rel="noreferrer">
           ${contactIcon("location")}<span>${escapeHtml(data.brand.address)}</span>
-        </p>
+        </a>
         <a class="button" href="mailto:${escapeHtml(data.brand.email)}">${escapeHtml(contact.form.consultationLabel)}</a>
       </div>
 
@@ -194,7 +192,6 @@ function renderContact(main) {
         <label><span>${escapeHtml(contact.form.messageLabel)}</span><textarea name="message" rows="6"${
           contact.form.messageRequired ? " required" : ""
         }></textarea></label>
-        <p class="form-helper">${escapeHtml(contact.form.helperText)}</p>
         <button class="button" type="submit">${escapeHtml(contact.form.buttonLabel)}</button>
       </form>
     </section>

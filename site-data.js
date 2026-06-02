@@ -6,7 +6,8 @@ window.ECONSET_DATA = {
     email: "Ehsan.ghassemlou@gmail.com",
     phone: "+1 (647) 460-7907",
     phoneHref: "+16474607907",
-    address: "17 Anndale Drive, Toronto, ON, Canada"
+    address: "17 Anndale Drive, Toronto, ON, Canada",
+    addressHref: "https://www.google.com/maps/search/?api=1&query=17%20Anndale%20Drive%2C%20Toronto%2C%20ON%2C%20Canada"
   },
   navigation: [
     { label: "Home", href: "index.html", page: "home" },
@@ -22,7 +23,7 @@ window.ECONSET_DATA = {
   pages: {
     home: {
       hero: {
-        heading: "Designing spaces with clarity, function, and purpose.",
+        heading: "Designing spaces with clarity, function, and purpose",
         body:
           "We create residential and commercial architecture ranging from small renovations to complete custom builds. Every project begins with understanding, exploration, and a clear design direction tailored to your needs.",
         note: "Initial concept consultation available",
@@ -31,7 +32,7 @@ window.ECONSET_DATA = {
       },
       why: {
         label: "Why Work With Us",
-        heading: "Clarity, alignment, and confidence before full design.",
+        heading: "Clarity, alignment, and confidence before full design",
         paragraphs: [
           "Every project begins with understanding your needs on site.",
           "We offer an initial site visit and concept design proposal to explore your ideas and translate them into architectural direction. After the first design presentation, which may include sketches or visual concept renderings, you will have the opportunity to decide whether to proceed with the full design service.",
@@ -103,8 +104,8 @@ window.ECONSET_DATA = {
     },
     about: {
       hero: {
-        label: "ECONSET Design",
-        heading: "Founded by Ehsan Ghassemlou, OAA Architect.",
+        label: "ECONSET Architect",
+        heading: "Founded by Ehsan Ghassemlou, OAA Architect",
         image: "assets/ehsan-ghassemlou.jpg",
         imageAlt: "Ehsan Ghassemlou, OAA Architect"
       },
@@ -121,7 +122,7 @@ window.ECONSET_DATA = {
     },
     contact: {
       hero: {
-        heading: "Book a consultation.",
+        heading: "Book a consultation",
         body: "Share a few details about your project and I will follow up with the next step.",
         image: "assets/contact-exterior.jpg",
         imageAlt: "Modern concrete exterior with warm wood entry"
@@ -135,9 +136,8 @@ window.ECONSET_DATA = {
         messageLabel: "Message",
         messageRequired: true,
         buttonLabel: "Send Inquiry",
-        consultationLabel: "Book a Consultation",
-        helperText: "Submitting opens your email app with the inquiry prepared."
-      }
+        consultationLabel: "Book a Consultation"
+        }
     }
   }
 };
