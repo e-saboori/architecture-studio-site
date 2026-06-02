@@ -164,7 +164,7 @@ p, h1, h2, h3, a, span { overflow-wrap: break-word; }
     linear-gradient(90deg, rgba(247,246,243,0.97) 0%, rgba(247,246,243,0.86) 28%, rgba(247,246,243,0.18) 58%, rgba(247,246,243,0) 100%),
     url("assets/hero-exterior.jpg");
   background-size: cover;
-  background-position: right center;
+  background-position: calc(100% - 20px) center;
   background-repeat: no-repeat;
   transform: scale(1);
   animation: imageSettle 720ms var(--ease-luxe) both;
@@ -307,21 +307,17 @@ h3 { font-size: 16px; font-weight: 500; }
   grid-template-columns: 0.55fr 0.45fr;
   align-items: center;
   color: var(--color-white);
-  background: var(--color-ink);
-}
-.cta-image {
-  height: 100%;
-  min-height: 420px;
   background:
-    linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.16)),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.76) 100%),
     url("assets/courtyard.jpg");
   background-size: cover;
   background-position: left bottom;
   background-repeat: no-repeat;
-  transition: transform 1800ms var(--ease-luxe);
 }
-.cta:hover .cta-image { transform: scale(1.02); }
-.cta-content { max-width: 470px; padding: 70px var(--section-x); }
+.cta-image {
+  display: none;
+}
+.cta-content { max-width: 470px; padding: 70px var(--section-x); grid-column: 2; }
 .cta .section-label { color: rgba(255,255,255,0.74); }
 .cta p { max-width: 330px; margin-bottom: 28px; color: rgba(255,255,255,0.84); }
 
@@ -343,6 +339,9 @@ h3 { font-size: 16px; font-weight: 500; }
   align-items: center;
   gap: clamp(40px, 7vw, 90px);
 }
+.services-hero p {
+  margin-top: 24px;
+}
 .two-col-hero img, .contact-hero img {
   width: 100%;
   aspect-ratio: 1.35 / 1;
@@ -351,7 +350,7 @@ h3 { font-size: 16px; font-weight: 500; }
   animation: imageSettle 720ms var(--ease-luxe) 120ms both;
   transition: transform 1800ms var(--ease-luxe);
 }
-.two-col-hero:hover img, .contact-hero:hover img { transform: scale(1.02); }
+.two-col-hero:hover img { transform: scale(1.02); }
 .image-edge-fade {
   position: relative;
   width: 100%;
@@ -374,31 +373,35 @@ h3 { font-size: 16px; font-weight: 500; }
   aspect-ratio: 1.18 / 1;
   object-position: center;
 }
+.contact-hero {
+  position: relative;
+  min-height: 520px;
+  isolation: isolate;
+  overflow: hidden;
+}
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(247,246,243,0.98) 0%, rgba(247,246,243,0.86) 42%, rgba(247,246,243,0.24) 66%, rgba(247,246,243,0) 100%),
+    url("assets/contact-exterior.jpg");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  animation: imageSettle 720ms var(--ease-luxe) 120ms both;
+}
+.contact-hero > div {
+  max-width: 520px;
+}
+.contact-hero h1 {
+  margin-bottom: 24px;
+}
+.contact-hero img {
+  display: none;
+}
 .about-founder img { object-position: center; }
-
-.services-preview {
-  border-top: 1px solid var(--color-line);
-  background: linear-gradient(180deg, var(--color-white), var(--color-paper));
-}
-.services-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
-}
-.services-preview-grid article {
-  min-height: 150px;
-  padding: 26px;
-  display: flex;
-  align-items: flex-end;
-}
-.services-preview-grid article + article { border-left: 1px solid var(--color-line); }
-.services-preview-grid h3 {
-  max-width: 220px;
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.22;
-}
-.services-preview .text-link { margin-top: 28px; }
 
 .service-list { display: grid; gap: 0; border-top: 1px solid var(--color-line); }
 .service-list article {
@@ -431,13 +434,10 @@ h3 { font-size: 16px; font-weight: 500; }
 .process-list span { color: var(--color-muted); font-size: 22px; font-weight: 300; }
 .process-list h2 { margin: 0; font-size: clamp(19px, 2vw, 25px); line-height: 1.22; }
 .process-copy { max-width: 780px; margin-top: 12px; margin-bottom: 42px; }
-
-.page-cta {
-  border-top: 1px solid var(--color-line);
-  background: var(--color-paper);
+.process-heading {
+  margin-bottom: 24px;
+  font-size: clamp(38px, 5vw, 66px);
 }
-.page-cta h2 { max-width: 560px; }
-.page-cta p:not(.section-label) { max-width: 500px; margin-bottom: 28px; color: var(--color-ink-soft); }
 
 .narrative {
   max-width: 780px;
@@ -446,29 +446,6 @@ h3 { font-size: 16px; font-weight: 500; }
   margin: 0 auto;
 }
 .narrative h2 { margin-bottom: 8px; }
-.trust-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-top: 42px;
-  padding-bottom: 42px;
-  border-top: 1px solid var(--color-line);
-  border-bottom: 1px solid var(--color-line);
-}
-.trust-strip article {
-  min-height: 86px;
-  display: flex;
-  align-items: center;
-  padding-right: clamp(20px, 3vw, 42px);
-}
-.trust-strip article + article {
-  border-left: 1px solid var(--color-line);
-  padding-left: clamp(20px, 3vw, 42px);
-}
-.trust-strip span {
-  color: var(--color-ink-soft);
-  font-size: clamp(17px, 1.8vw, 22px);
-  line-height: 1.25;
-}
 .profile-link {
   min-height: 44px;
   padding: 0 18px;
@@ -656,37 +633,48 @@ h3 { font-size: 16px; font-weight: 500; }
       linear-gradient(180deg, rgba(247,246,243,0.90) 0%, rgba(247,246,243,0.78) 35%, rgba(247,246,243,0.28) 72%, rgba(247,246,243,0.82) 100%),
       url("assets/hero-exterior.jpg");
     background-size: cover;
-    background-position: right center;
+    background-position: calc(100% - 20px) center;
     background-repeat: no-repeat;
   }
   .hero h1 { font-size: clamp(34px, 11vw, 46px); margin-bottom: 22px; }
   .hero p { font-size: 14px; max-width: 330px; }
   .page-hero h1 { font-size: clamp(34px, 10.5vw, 48px); }
-  .contact-hero h1,
-  .contact-hero p {
-    max-width: 310px;
+  .contact-hero { min-height: 560px; align-content: end; }
+  .contact-hero::before {
+    background:
+      linear-gradient(180deg, rgba(247,246,243,0.92) 0%, rgba(247,246,243,0.76) 48%, rgba(247,246,243,0.34) 72%, rgba(247,246,243,0.90) 100%),
+      url("assets/contact-exterior.jpg");
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
   }
+  .contact-hero h1,
+  .contact-hero p { max-width: 330px; }
   h2 { font-size: clamp(26px, 7.2vw, 36px); }
   .section, .page-hero { padding: 52px 28px; }
   .intro-grid, .about-strip, .two-col-hero, .contact-hero, .contact-grid, .service-list article, .cta { grid-template-columns: 1fr; }
   .about-strip { gap: 36px; }
-  .about-strip img, .two-col-hero img, .contact-hero img { order: -1; aspect-ratio: 1.35 / 1; }
-  .services-preview-grid, .process-list, .trust-strip { grid-template-columns: 1fr; }
-  .services-preview-grid article + article,
-  .process-list article + article,
-  .trust-strip article + article {
+  .about-strip img, .two-col-hero img { order: -1; aspect-ratio: 1.35 / 1; }
+  .process-list { grid-template-columns: 1fr; }
+  .process-list article + article {
     border-left: 0;
     border-top: 1px solid var(--color-line);
   }
-  .services-preview-grid article { min-height: 110px; padding: 24px 0; }
   .service-list article { gap: 14px; padding: 28px 0; }
   .process-grid { grid-template-columns: 1fr; gap: 28px; }
   .process-grid article, .process-grid article + article { padding: 0 0 26px; border-left: 0; border-bottom: 1px solid var(--color-line); }
   .process-list article { min-height: 0; padding: 24px 0; gap: 12px; }
-  .trust-strip { padding-top: 32px; padding-bottom: 32px; }
-  .trust-strip article { min-height: 0; padding: 18px 0; }
-  .cta-image { min-height: 300px; background-position: left bottom; }
-  .cta-content { padding: 48px 28px 58px; }
+  .cta {
+    min-height: 420px;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.40) 46%, rgba(0,0,0,0.78) 100%),
+      url("assets/courtyard.jpg");
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+  .cta-image { display: none; }
+  .cta-content { grid-column: 1; padding: 48px 28px 58px; }
   .contact-details { padding-right: 0; }
   .contact-form { grid-template-columns: 1fr; padding-left: 0; padding-top: 34px; border-left: 0; border-top: 1px solid var(--color-line); }
   .contact-form .button, .contact-details .button { width: 100%; }
@@ -707,6 +695,7 @@ h3 { font-size: 16px; font-weight: 500; }
   .hero-content > *,
   .hero::before,
   .page-hero > div > *,
+  .contact-hero::before,
   .two-col-hero img,
   .contact-hero img {
     animation: none !important;

@@ -49,12 +49,6 @@ window.ECONSET_DATA = {
         body: "We'd love to hear about it. Let's create something meaningful together.",
         ctaLabel: "Contact ECONSET",
         ctaHref: "contact.html"
-      },
-      servicesPreview: {
-        label: "What We Do for You",
-        heading: "Design services across a wide range of project scales.",
-        ctaLabel: "Services",
-        ctaHref: "services.html"
       }
     },
     services: {
@@ -127,13 +121,7 @@ window.ECONSET_DATA = {
         ],
         linkLabel: "OAA Profile: Ehsan Ghassemlou",
         linkHref: "https://oaa.on.ca/oaa-directory/search-architects/search-architects-detail/EhsanGhassemlou"
-      },
-      credentials: [
-        "OAA Architect",
-        "17 years of experience",
-        "Ontario licensed architect",
-        "Construction and project management"
-      ]
+      }
     },
     contact: {
       hero: {

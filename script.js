@@ -73,20 +73,6 @@ function renderHome(main) {
       <div class="body-copy">${paragraphs(home.why.paragraphs)}</div>
     </section>
 
-    <section class="section services-preview reveal">
-      <div class="section-kicker">
-        <p class="section-label">${escapeHtml(home.servicesPreview.label)}</p>
-        <h2>${escapeHtml(home.servicesPreview.heading)}</h2>
-      </div>
-      <div class="services-preview-grid">
-        ${data.pages.services.services
-          .slice(0, 4)
-          .map((item) => `<article><h3>${escapeHtml(item.title)}</h3></article>`)
-          .join("")}
-      </div>
-      <a class="text-link" href="${escapeHtml(home.servicesPreview.ctaHref)}">${escapeHtml(home.servicesPreview.ctaLabel)}</a>
-    </section>
-
     <section class="cta reveal">
       <div class="cta-image" aria-hidden="true"></div>
       <div class="cta-content">
@@ -102,7 +88,7 @@ function renderHome(main) {
 function renderServices(main) {
   const services = data.pages.services;
   main.innerHTML = `
-    <section class="page-hero two-col-hero">
+    <section class="page-hero two-col-hero services-hero">
       <div>
         <p class="section-label">${escapeHtml(services.hero.label)}</p>
         <h1>${escapeHtml(services.hero.heading)}</h1>
@@ -119,8 +105,8 @@ function renderServices(main) {
         .join("")}
     </section>
 
-    <section class="section reveal">
-      <p class="section-label">${escapeHtml(services.process.label)}</p>
+    <section class="section process-section reveal">
+      <h2 class="process-heading">${escapeHtml(services.process.label)}</h2>
       <div class="body-copy process-copy">${paragraphs(services.process.description)}</div>
       <div class="process-list">
         ${services.process.steps
@@ -132,13 +118,6 @@ function renderServices(main) {
           )
           .join("")}
       </div>
-    </section>
-
-    <section class="section page-cta reveal">
-      <p class="section-label">${escapeHtml(data.pages.home.cta.label)}</p>
-      <h2>${escapeHtml(data.pages.home.cta.heading)}</h2>
-      <p>${escapeHtml(data.pages.home.cta.body)}</p>
-      <a class="button" href="${escapeHtml(data.pages.home.cta.ctaHref)}">${escapeHtml(data.pages.home.cta.ctaLabel)}</a>
     </section>
   `;
 }
@@ -152,10 +131,6 @@ function renderAbout(main) {
         <h1>${escapeHtml(about.hero.heading)}</h1>
       </div>
       <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
-    </section>
-
-    <section class="section trust-strip reveal">
-      ${about.credentials.map((item) => `<article><span>${escapeHtml(item)}</span></article>`).join("")}
     </section>
 
     <section class="section narrative reveal">
