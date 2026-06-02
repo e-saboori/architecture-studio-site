@@ -1,7 +1,7 @@
 window.ECONSET_DATA = {
   brand: {
-    name: "ECONSET Architecture",
-    logoText: "ECONSET<br />ARCHITECTURE",
+    name: "ECONSET Design",
+    logoText: "ECONSET<br />DESIGN",
     logoImage: "assets/econset-logo-icon.png",
     email: "Ehsan.ghassemlou@gmail.com",
     phone: "+1 (647) 460-7907",
@@ -15,13 +15,9 @@ window.ECONSET_DATA = {
     { label: "Contact", href: "contact.html", page: "contact" }
   ],
   footer: {
-    copyright: "© 2026 ECONSET Architecture",
+    copyright: "© 2026 ECONSET Design",
     ctaLabel: "Book Consultation",
     ctaHref: "contact.html"
-  },
-  navCta: {
-    label: "Book Consultation",
-    href: "contact.html"
   },
   pages: {
     home: {
@@ -56,7 +52,7 @@ window.ECONSET_DATA = {
         label: "What We Do for You",
         heading: "Design services across a wide range of project scales.",
         body:
-          "At ECONSET Architecture, we provide design services across residential, commercial, and institutional projects from small renovations to full-scale architectural developments.",
+          "At ECONSET Design, we provide design services across residential, commercial, and institutional projects from small renovations to full-scale architectural developments.",
         image: "assets/interior.jpg",
         imageAlt: "Warm modern residential interior"
       },
@@ -107,7 +103,7 @@ window.ECONSET_DATA = {
     },
     about: {
       hero: {
-        label: "ECONSET Architecture",
+        label: "ECONSET Design",
         heading: "Founded by Ehsan Ghassemlou, OAA Architect.",
         image: "assets/ehsan-ghassemlou.jpg",
         imageAlt: "Ehsan Ghassemlou, OAA Architect"
@@ -134,10 +130,7 @@ window.ECONSET_DATA = {
         fields: [
           { label: "Name", name: "name", type: "text", autocomplete: "name", required: true },
           { label: "Email", name: "email", type: "email", autocomplete: "email", required: true },
-          { label: "Phone", name: "phone", type: "tel", autocomplete: "tel" },
-          { label: "Project Type", name: "project", type: "text" },
-          { label: "Project Location", name: "location", type: "text", autocomplete: "street-address" },
-          { label: "Timeline", name: "timeline", type: "text" }
+          { label: "Phone", name: "phone", type: "tel", autocomplete: "tel" }
         ],
         messageLabel: "Message",
         messageRequired: true,

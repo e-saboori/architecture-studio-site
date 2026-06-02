@@ -30,7 +30,6 @@ function renderHeader() {
             `<a href="${escapeHtml(item.href)}" data-nav-link="${escapeHtml(item.page)}">${escapeHtml(item.label)}</a>`
         )
         .join("")}
-      <a class="nav-cta" href="${escapeHtml(data.navCta.href)}">${escapeHtml(data.navCta.label)}</a>
     </nav>
     <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
       <span></span><span></span>
@@ -130,7 +129,9 @@ function renderAbout(main) {
         <p class="section-label">${escapeHtml(about.hero.label)}</p>
         <h1>${escapeHtml(about.hero.heading)}</h1>
       </div>
-      <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
+      <div class="image-edge-fade">
+        <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
+      </div>
     </section>
 
     <section class="section narrative reveal">

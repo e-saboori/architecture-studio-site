@@ -1,4 +1,4 @@
-# ECONSET Architecture
+# ECONSET Design
 
 Responsive static website built with plain HTML, CSS, and minimal JavaScript.
 
