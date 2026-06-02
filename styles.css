@@ -463,12 +463,12 @@ h3 { font-size: 16px; font-weight: 500; }
   align-content: start;
   gap: 22px;
   padding-right: clamp(34px, 6vw, 78px);
-  font-size: clamp(16px, 1.35vw, 18px);
+  font-size: clamp(19px, 1.5vw, 21px);
   font-weight: 300;
 }
 .contact-list {
   display: grid;
-  gap: 22px;
+  gap: 0;
 }
 .contact-form {
   display: grid;
@@ -549,12 +549,12 @@ h3 { font-size: 16px; font-weight: 500; }
     align-content: stretch;
     padding-right: var(--contact-column-padding);
     padding-left: var(--contact-column-padding);
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .contact-list {
     grid-row: 2;
-    gap: clamp(54px, 5.4vw, 82px);
+    gap: 0;
   }
 
   .contact-item {
@@ -836,7 +836,7 @@ h3 { font-size: 16px; font-weight: 500; }
     grid-template-rows: none;
     gap: 16px;
     padding-right: 0;
-    font-size: 15px;
+    font-size: 18px;
   }
   .contact-item {
     grid-template-columns: 22px minmax(0, 1fr);
