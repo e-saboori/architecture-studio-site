@@ -65,7 +65,7 @@ function renderHome(main) {
       </div>
     </section>
 
-    <section class="section intro-grid">
+    <section class="section intro-grid reveal">
       <div>
         <p class="section-label">${escapeHtml(home.why.label)}</p>
         <h2>${escapeHtml(home.why.heading)}</h2>
@@ -73,7 +73,7 @@ function renderHome(main) {
       <div class="body-copy">${paragraphs(home.why.paragraphs)}</div>
     </section>
 
-    <section class="section services-preview">
+    <section class="section services-preview reveal">
       <div class="section-kicker">
         <p class="section-label">${escapeHtml(home.servicesPreview.label)}</p>
         <h2>${escapeHtml(home.servicesPreview.heading)}</h2>
@@ -87,7 +87,7 @@ function renderHome(main) {
       <a class="text-link" href="${escapeHtml(home.servicesPreview.ctaHref)}">${escapeHtml(home.servicesPreview.ctaLabel)}</a>
     </section>
 
-    <section class="cta">
+    <section class="cta reveal">
       <div class="cta-image" aria-hidden="true"></div>
       <div class="cta-content">
         <p class="section-label">${escapeHtml(home.cta.label)}</p>
@@ -113,13 +113,13 @@ function renderServices(main) {
       </div>
     </section>
 
-    <section class="section service-list">
+    <section class="section service-list reveal">
       ${services.services
         .map((item) => `<article class="service-row"><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.body)}</p></article>`)
         .join("")}
     </section>
 
-    <section class="section">
+    <section class="section reveal">
       <p class="section-label">${escapeHtml(services.process.label)}</p>
       <div class="body-copy process-copy">${paragraphs(services.process.description)}</div>
       <div class="process-list">
@@ -134,7 +134,7 @@ function renderServices(main) {
       </div>
     </section>
 
-    <section class="section page-cta">
+    <section class="section page-cta reveal">
       <p class="section-label">${escapeHtml(data.pages.home.cta.label)}</p>
       <h2>${escapeHtml(data.pages.home.cta.heading)}</h2>
       <p>${escapeHtml(data.pages.home.cta.body)}</p>
@@ -154,11 +154,11 @@ function renderAbout(main) {
       <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
     </section>
 
-    <section class="section trust-strip">
+    <section class="section trust-strip reveal">
       ${about.credentials.map((item) => `<article><span>${escapeHtml(item)}</span></article>`).join("")}
     </section>
 
-    <section class="section narrative">
+    <section class="section narrative reveal">
       <h2>${escapeHtml(about.narrative.heading)}</h2>
       ${paragraphs(about.narrative.paragraphs)}
       <a class="text-link profile-link" href="${escapeHtml(about.narrative.linkHref)}" target="_blank" rel="noreferrer">
@@ -190,7 +190,7 @@ function renderContact(main) {
       <img src="${escapeHtml(contact.hero.image)}" alt="${escapeHtml(contact.hero.imageAlt)}" />
     </section>
 
-    <section class="section contact-grid">
+    <section class="section contact-grid reveal">
       <div class="contact-details">
         <a class="contact-item" href="mailto:${escapeHtml(data.brand.email)}">
           ${contactIcon("email")}<span>${escapeHtml(data.brand.email)}</span>
@@ -283,8 +283,34 @@ function bindContactForm() {
   });
 }
 
+function initRevealAnimations() {
+  document.body.classList.add("is-ready");
+
+  const revealItems = [...document.querySelectorAll(".reveal")];
+  if (!revealItems.length) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
 renderHeader();
 renderPage();
 renderFooter();
 bindNavigation();
 bindContactForm();
+initRevealAnimations();
