@@ -649,19 +649,23 @@ h3 { font-size: 16px; font-weight: 500; }
   .nav.is-open { transform: translateY(0); }
   .nav a { width: fit-content; padding: 10px 0 5px; }
   .menu-button {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
     width: 40px;
     height: 40px;
     margin-right: -8px;
   }
   .menu-button span {
     width: 22px;
-    margin: 3px 0;
+    margin: 0;
+    transform-origin: center;
     transition: transform var(--transition), opacity var(--transition);
   }
-  body.menu-open .menu-button span:first-child { transform: translateY(4px) rotate(38deg); }
-  body.menu-open .menu-button span:last-child { transform: translateY(-4px) rotate(-38deg); }
+  body.menu-open .menu-button span:first-child { transform: translateY(2.5px) rotate(38deg); }
+  body.menu-open .menu-button span:last-child { transform: translateY(-2.5px) rotate(-38deg); }
   .logo { gap: 7px; font-size: 11px; }
   .logo img { width: 22px; height: 22px; }
   .hero {
@@ -677,12 +681,17 @@ h3 { font-size: 16px; font-weight: 500; }
     background-size: cover;
     background-position: 82% center;
     background-repeat: no-repeat;
+    filter: saturate(0.72);
   }
   .hero h1 { font-size: clamp(33px, 10.4vw, 44px); margin-bottom: 18px; line-height: 1.07; }
   .hero p { max-width: 330px; margin-bottom: 22px; font-size: 14px; line-height: 1.6; }
   .hero-note { padding-top: 12px; }
   .page-hero h1 { font-size: clamp(34px, 10.5vw, 48px); }
-  .contact-hero { min-height: 480px; align-content: end; }
+  .contact-hero {
+    min-height: 430px;
+    align-content: start;
+    padding-top: 76px;
+  }
   .contact-hero::before {
     background:
       linear-gradient(180deg, rgba(247,246,243,0.90) 0%, rgba(247,246,243,0.72) 46%, rgba(247,246,243,0.30) 70%, rgba(247,246,243,0.92) 100%),
@@ -693,8 +702,12 @@ h3 { font-size: 16px; font-weight: 500; }
   }
   .contact-hero h1,
   .contact-hero p { max-width: 330px; }
+  .home-why-heading span { display: block; }
+  .home-why-heading { font-size: clamp(21px, 5.45vw, 24px); }
+  .home-why-copy p { text-align: justify; }
   h2 { font-size: clamp(23px, 6vw, 30px); }
   .section, .page-hero { padding: 44px 26px; }
+  .page-hero.contact-hero { padding-top: 76px; }
   .intro-grid, .about-strip, .two-col-hero, .contact-hero, .contact-grid, .service-list article, .cta { grid-template-columns: 1fr; }
   .about-strip { gap: 36px; }
   .about-strip img, .two-col-hero img { order: -1; aspect-ratio: 1.35 / 1; }
@@ -718,7 +731,7 @@ h3 { font-size: 16px; font-weight: 500; }
   .process-grid { grid-template-columns: 1fr; gap: 28px; }
   .process-grid article, .process-grid article + article { padding: 0 0 26px; border-left: 0; border-bottom: 1px solid var(--color-line); }
   .process-heading { margin-bottom: 18px; font-size: clamp(32px, 10vw, 44px); }
-  .process-copy { margin-bottom: 28px; text-align: left; }
+  .process-copy { margin-bottom: 28px; text-align: justify; }
   .process-list { margin-top: 26px; }
   .process-list article { min-height: 0; padding: 20px 0; gap: 10px; }
   .process-list span { font-size: 20px; }
@@ -804,7 +817,10 @@ h3 { font-size: 16px; font-weight: 500; }
   .hero h1 { font-size: clamp(31px, 10.2vw, 41px); }
   .button { width: auto; min-height: 46px; padding-inline: 22px; font-size: 13px; }
   .section, .page-hero { padding: 40px 22px; }
-  .contact-hero { min-height: 440px; }
+  .contact-hero {
+    min-height: 390px;
+    padding-top: 62px;
+  }
   .contact-grid { padding-top: 38px; padding-bottom: 38px; }
   .cta { min-height: 360px; }
   .cta-content { padding: 38px 22px 46px; }
