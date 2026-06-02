@@ -1,15 +1,14 @@
 # ECONSET Architecture
 
-Responsive static website for ECONSET Design.
+Responsive static website built with plain HTML, CSS, and minimal JavaScript.
 
-## Files
+## Pages
 
 - `index.html`
-- `about.html`
 - `services.html`
+- `about.html`
 - `contact.html`
-- `styles.css`
-- `script.js`
-- `assets/`
 
-The site uses the provided ECONSET logo and founder portrait.
+## Assets
+
+Images live in `assets/` and can be replaced later without changing the page structure.

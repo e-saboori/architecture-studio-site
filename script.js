@@ -23,8 +23,7 @@ window.addEventListener("keydown", (event) => {
 document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const form = event.currentTarget;
-  const formData = new FormData(form);
+  const formData = new FormData(event.currentTarget);
   const subject = encodeURIComponent(`Project inquiry from ${formData.get("name") || "website visitor"}`);
   const body = encodeURIComponent(
     [
