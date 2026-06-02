@@ -539,14 +539,14 @@ h3 { font-size: 16px; font-weight: 500; }
     align-content: stretch;
     padding-right: clamp(48px, 5vw, 76px);
     padding-left: clamp(48px, 5vw, 76px);
-    font-size: clamp(21px, 1.65vw, 26px);
+    font-size: 12px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr 1fr;
     min-height: 700px;
     padding-top: clamp(78px, 7vw, 112px);
-    padding-bottom: clamp(78px, 7vw, 112px);
+    padding-bottom: 0;
   }
 
   .contact-list {
@@ -569,13 +569,13 @@ h3 { font-size: 16px; font-weight: 500; }
 
   .contact-details .button {
     grid-row: 4;
-    width: min(340px, calc(100% - 64px));
+    width: min(340px, 100%);
     min-height: 58px;
     justify-self: start;
     align-self: end;
-    margin-left: 64px;
+    margin-left: 0;
     padding: 0 30px;
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .contact-form {
@@ -584,7 +584,7 @@ h3 { font-size: 16px; font-weight: 500; }
     gap: 18px;
     padding-right: clamp(48px, 5vw, 76px);
     padding-left: clamp(48px, 5vw, 76px);
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .contact-form input {
@@ -609,7 +609,7 @@ h3 { font-size: 16px; font-weight: 500; }
     align-self: end;
     justify-self: start;
     padding: 0 30px;
-    font-size: 18px;
+    font-size: 12px;
   }
 
   .about-founder {
@@ -745,7 +745,7 @@ h3 { font-size: 16px; font-weight: 500; }
   .hero-content { max-width: 336px; }
   .hero::before {
     background:
-      linear-gradient(180deg, rgba(247,246,243,0.88) 0%, rgba(247,246,243,0.72) 32%, rgba(247,246,243,0.20) 72%, rgba(247,246,243,0.84) 100%),
+      linear-gradient(180deg, rgba(247,246,243,0.96) 0%, rgba(247,246,243,0.88) 30%, rgba(247,246,243,0.72) 66%, rgba(247,246,243,0.94) 100%),
       url("assets/hero-exterior.jpg");
     background-size: cover;
     background-position: 82% center;
@@ -777,9 +777,12 @@ h3 { font-size: 16px; font-weight: 500; }
   .contact-hero h1,
   .contact-hero p { max-width: 330px; }
   .home-why-heading span { display: block; }
-  .home-why-heading { font-size: clamp(21px, 5.45vw, 24px); }
+  .home-why-heading {
+    margin-bottom: 6px;
+    font-size: clamp(21px, 5.45vw, 24px);
+  }
   .home-why-copy p { text-align: justify; }
-  .intro-grid { gap: 28px; }
+  .intro-grid { gap: 8px; }
   h2 { font-size: clamp(23px, 6vw, 30px); }
   .section, .page-hero { padding: 44px 26px; }
   .page-hero.contact-hero { padding-top: 60px; }
