@@ -15,7 +15,13 @@ window.ECONSET_DATA = {
     { label: "Contact", href: "contact.html", page: "contact" }
   ],
   footer: {
-    copyright: "© 2026 ECONSET Architecture"
+    copyright: "© 2026 ECONSET Architecture",
+    ctaLabel: "Book Consultation",
+    ctaHref: "contact.html"
+  },
+  navCta: {
+    label: "Book Consultation",
+    href: "contact.html"
   },
   pages: {
     home: {
@@ -43,6 +49,12 @@ window.ECONSET_DATA = {
         body: "We'd love to hear about it. Let's create something meaningful together.",
         ctaLabel: "Contact ECONSET",
         ctaHref: "contact.html"
+      },
+      servicesPreview: {
+        label: "What We Do for You",
+        heading: "Design services across a wide range of project scales.",
+        ctaLabel: "Services",
+        ctaHref: "services.html"
       }
     },
     services: {
@@ -115,7 +127,13 @@ window.ECONSET_DATA = {
         ],
         linkLabel: "OAA Profile: Ehsan Ghassemlou",
         linkHref: "https://oaa.on.ca/oaa-directory/search-architects/search-architects-detail/EhsanGhassemlou"
-      }
+      },
+      credentials: [
+        "OAA Architect",
+        "17 years of experience",
+        "Ontario licensed architect",
+        "Construction and project management"
+      ]
     },
     contact: {
       hero: {
@@ -126,13 +144,18 @@ window.ECONSET_DATA = {
       },
       form: {
         fields: [
-          { label: "Name", name: "name", type: "text", autocomplete: "name" },
-          { label: "Email", name: "email", type: "email", autocomplete: "email" },
-          { label: "Project Type", name: "project", type: "text" }
+          { label: "Name", name: "name", type: "text", autocomplete: "name", required: true },
+          { label: "Email", name: "email", type: "email", autocomplete: "email", required: true },
+          { label: "Phone", name: "phone", type: "tel", autocomplete: "tel" },
+          { label: "Project Type", name: "project", type: "text" },
+          { label: "Project Location", name: "location", type: "text", autocomplete: "street-address" },
+          { label: "Timeline", name: "timeline", type: "text" }
         ],
         messageLabel: "Message",
+        messageRequired: true,
         buttonLabel: "Send Inquiry",
-        consultationLabel: "Book a Consultation"
+        consultationLabel: "Book a Consultation",
+        helperText: "Submitting opens your email app with the inquiry prepared."
       }
     }
   }

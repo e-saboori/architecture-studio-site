@@ -30,6 +30,7 @@ function renderHeader() {
             `<a href="${escapeHtml(item.href)}" data-nav-link="${escapeHtml(item.page)}">${escapeHtml(item.label)}</a>`
         )
         .join("")}
+      <a class="nav-cta" href="${escapeHtml(data.navCta.href)}">${escapeHtml(data.navCta.label)}</a>
     </nav>
     <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
       <span></span><span></span>
@@ -44,7 +45,11 @@ function renderFooter() {
   footer.className = "site-footer";
   footer.innerHTML = `
     <p>${escapeHtml(data.footer.copyright)}</p>
-    <a href="mailto:${escapeHtml(data.brand.email)}">${escapeHtml(data.brand.email)}</a>
+    <div class="footer-links">
+      <a href="tel:${escapeHtml(data.brand.phoneHref)}">${escapeHtml(data.brand.phone)}</a>
+      <a href="mailto:${escapeHtml(data.brand.email)}">${escapeHtml(data.brand.email)}</a>
+      <a href="${escapeHtml(data.footer.ctaHref)}">${escapeHtml(data.footer.ctaLabel)}</a>
+    </div>
   `;
 }
 
@@ -66,6 +71,20 @@ function renderHome(main) {
         <h2>${escapeHtml(home.why.heading)}</h2>
       </div>
       <div class="body-copy">${paragraphs(home.why.paragraphs)}</div>
+    </section>
+
+    <section class="section services-preview">
+      <div class="section-kicker">
+        <p class="section-label">${escapeHtml(home.servicesPreview.label)}</p>
+        <h2>${escapeHtml(home.servicesPreview.heading)}</h2>
+      </div>
+      <div class="services-preview-grid">
+        ${data.pages.services.services
+          .slice(0, 4)
+          .map((item) => `<article><h3>${escapeHtml(item.title)}</h3></article>`)
+          .join("")}
+      </div>
+      <a class="text-link" href="${escapeHtml(home.servicesPreview.ctaHref)}">${escapeHtml(home.servicesPreview.ctaLabel)}</a>
     </section>
 
     <section class="cta">
@@ -96,7 +115,7 @@ function renderServices(main) {
 
     <section class="section service-list">
       ${services.services
-        .map((item) => `<article><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.body)}</p></article>`)
+        .map((item) => `<article class="service-row"><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.body)}</p></article>`)
         .join("")}
     </section>
 
@@ -107,12 +126,19 @@ function renderServices(main) {
         ${services.process.steps
           .map(
             (step) =>
-              `<article><span>${escapeHtml(step.number)}</span><h2>${escapeHtml(step.title)}</h2>${
+              `<article class="process-step"><span>${escapeHtml(step.number)}</span><div><h2>${escapeHtml(step.title)}</h2>${
                 step.note ? `<p>${escapeHtml(step.note)}</p>` : ""
-              }</article>`
+              }</div></article>`
           )
           .join("")}
       </div>
+    </section>
+
+    <section class="section page-cta">
+      <p class="section-label">${escapeHtml(data.pages.home.cta.label)}</p>
+      <h2>${escapeHtml(data.pages.home.cta.heading)}</h2>
+      <p>${escapeHtml(data.pages.home.cta.body)}</p>
+      <a class="button" href="${escapeHtml(data.pages.home.cta.ctaHref)}">${escapeHtml(data.pages.home.cta.ctaLabel)}</a>
     </section>
   `;
 }
@@ -128,10 +154,14 @@ function renderAbout(main) {
       <img src="${escapeHtml(about.hero.image)}" alt="${escapeHtml(about.hero.imageAlt)}" />
     </section>
 
+    <section class="section trust-strip">
+      ${about.credentials.map((item) => `<article><span>${escapeHtml(item)}</span></article>`).join("")}
+    </section>
+
     <section class="section narrative">
       <h2>${escapeHtml(about.narrative.heading)}</h2>
       ${paragraphs(about.narrative.paragraphs)}
-      <a class="text-link" href="${escapeHtml(about.narrative.linkHref)}" target="_blank" rel="noreferrer">
+      <a class="text-link profile-link" href="${escapeHtml(about.narrative.linkHref)}" target="_blank" rel="noreferrer">
         ${escapeHtml(about.narrative.linkLabel)}
       </a>
     </section>
@@ -180,10 +210,15 @@ function renderContact(main) {
             (field) =>
               `<label><span>${escapeHtml(field.label)}</span><input type="${escapeHtml(field.type)}" name="${escapeHtml(
                 field.name
-              )}"${field.autocomplete ? ` autocomplete="${escapeHtml(field.autocomplete)}"` : ""} /></label>`
+              )}"${field.autocomplete ? ` autocomplete="${escapeHtml(field.autocomplete)}"` : ""}${
+                field.required ? " required" : ""
+              } /></label>`
           )
           .join("")}
-        <label><span>${escapeHtml(contact.form.messageLabel)}</span><textarea name="message" rows="6"></textarea></label>
+        <label><span>${escapeHtml(contact.form.messageLabel)}</span><textarea name="message" rows="6"${
+          contact.form.messageRequired ? " required" : ""
+        }></textarea></label>
+        <p class="form-helper">${escapeHtml(contact.form.helperText)}</p>
         <button class="button" type="submit">${escapeHtml(contact.form.buttonLabel)}</button>
       </form>
     </section>
@@ -233,11 +268,12 @@ function bindContactForm() {
 
     const formData = new FormData(event.currentTarget);
     const subject = encodeURIComponent(`Project inquiry from ${formData.get("name") || "website visitor"}`);
+    const fieldLines = data.pages.contact.form.fields.map(
+      (field) => `${field.label}: ${formData.get(field.name) || ""}`
+    );
     const body = encodeURIComponent(
       [
-        `Name: ${formData.get("name") || ""}`,
-        `Email: ${formData.get("email") || ""}`,
-        `Project Type: ${formData.get("project") || ""}`,
+        ...fieldLines,
         "",
         `${formData.get("message") || ""}`
       ].join("\n")
