@@ -7,7 +7,9 @@ const site = {
     logoImage: "assets/econset-logo-icon.png",
     email: "Ehsan.ghassemlou@gmail.com",
     phone: "+1 (647) 460-7907",
-    phoneHref: "+16474607907"
+    phoneHref: "+16474607907",
+    address: "North York, Toronto, Ontario, Canada",
+    addressHref: "https://www.google.com/maps/search/?api=1&query=North%20York%2C%20Toronto%2C%20Ontario%2C%20Canada"
   },
   navigation: [
     { label: "Home", href: "index.html", page: "home" },
@@ -62,7 +64,7 @@ function renderFooter() {
   footer.innerHTML = `
     <p>${escapeHtml(site.footer.copyright)}</p>
     <div class="footer-links">
-      <a href="tel:${escapeHtml(site.brand.phoneHref)}">${escapeHtml(site.brand.phone)}</a>
+      <a href="${escapeHtml(site.brand.addressHref)}" target="_blank" rel="noreferrer">${escapeHtml(site.brand.address)}</a>
       <a href="mailto:${escapeHtml(site.brand.email)}">${escapeHtml(site.brand.email)}</a>
       <a href="${escapeHtml(site.footer.ctaHref)}">${escapeHtml(site.footer.ctaLabel)}</a>
     </div>
