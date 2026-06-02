@@ -589,74 +589,107 @@ h3 { font-size: 16px; font-weight: 500; }
   .site-header, .static-header {
     position: fixed;
     align-items: center;
-    padding: 13px 20px;
-    background: rgba(247,246,243,0.98);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 1px 0 rgba(22,22,22,0.06);
+    padding: 9px 18px;
+    background: rgba(247,246,243,0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(22,22,22,0.045);
   }
-  body:not([data-page="home"]) main { padding-top: 58px; }
+  body:not([data-page="home"]) main { padding-top: 52px; }
   .nav {
     position: fixed;
-    top: 56px;
+    top: 50px;
     right: 0;
     left: 0;
     display: grid;
     gap: 0;
-    padding: 6px 20px 16px;
-    background: rgba(247,246,243,0.98);
-    border-top: 1px solid rgba(22,22,22,0.08);
-    transform: translateY(-125%);
+    padding: 4px 18px 12px;
+    background: rgba(247,246,243,0.97);
+    border-top: 1px solid rgba(22,22,22,0.055);
+    transform: translateY(calc(-100% - 52px));
     transition: transform var(--transition);
   }
   .nav.is-open { transform: translateY(0); }
-  .nav a { width: fit-content; padding: 12px 0 5px; }
-  .menu-button { display: block; }
-  .logo { gap: 8px; font-size: 12px; }
-  .logo img { width: 25px; height: 25px; }
+  .nav a { width: fit-content; padding: 10px 0 5px; }
+  .menu-button {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: -8px;
+  }
+  .menu-button span {
+    width: 22px;
+    margin: 3px 0;
+    transition: transform var(--transition), opacity var(--transition);
+  }
+  body.menu-open .menu-button span:first-child { transform: translateY(4px) rotate(38deg); }
+  body.menu-open .menu-button span:last-child { transform: translateY(-4px) rotate(-38deg); }
+  .logo { gap: 7px; font-size: 11px; }
+  .logo img { width: 22px; height: 22px; }
   .hero {
-    min-height: 700px;
-    padding: 118px 28px 58px;
+    min-height: 620px;
+    padding: 96px 26px 48px;
     align-items: end;
   }
-  .hero-content { max-width: 334px; }
+  .hero-content { max-width: 336px; }
   .hero::before {
     background:
-      linear-gradient(180deg, rgba(247,246,243,0.90) 0%, rgba(247,246,243,0.78) 35%, rgba(247,246,243,0.28) 72%, rgba(247,246,243,0.82) 100%),
+      linear-gradient(180deg, rgba(247,246,243,0.88) 0%, rgba(247,246,243,0.72) 32%, rgba(247,246,243,0.20) 72%, rgba(247,246,243,0.84) 100%),
       url("assets/hero-exterior.jpg");
     background-size: cover;
-    background-position: 100% center;
+    background-position: 82% center;
     background-repeat: no-repeat;
   }
-  .hero h1 { font-size: clamp(34px, 11vw, 46px); margin-bottom: 22px; }
-  .hero p { font-size: 14px; max-width: 330px; }
+  .hero h1 { font-size: clamp(33px, 10.4vw, 44px); margin-bottom: 18px; line-height: 1.07; }
+  .hero p { max-width: 330px; margin-bottom: 22px; font-size: 14px; line-height: 1.6; }
+  .hero-note { padding-top: 12px; }
   .page-hero h1 { font-size: clamp(34px, 10.5vw, 48px); }
-  .contact-hero { min-height: 560px; align-content: end; }
+  .contact-hero { min-height: 480px; align-content: end; }
   .contact-hero::before {
     background:
-      linear-gradient(180deg, rgba(247,246,243,0.92) 0%, rgba(247,246,243,0.76) 48%, rgba(247,246,243,0.34) 72%, rgba(247,246,243,0.90) 100%),
+      linear-gradient(180deg, rgba(247,246,243,0.90) 0%, rgba(247,246,243,0.72) 46%, rgba(247,246,243,0.30) 70%, rgba(247,246,243,0.92) 100%),
       url("assets/contact-exterior.jpg");
     background-size: cover;
-    background-position: right center;
+    background-position: 70% center;
     background-repeat: no-repeat;
   }
   .contact-hero h1,
   .contact-hero p { max-width: 330px; }
-  h2 { font-size: clamp(26px, 7.2vw, 36px); }
-  .section, .page-hero { padding: 52px 28px; }
+  h2 { font-size: clamp(23px, 6vw, 30px); }
+  .section, .page-hero { padding: 44px 26px; }
   .intro-grid, .about-strip, .two-col-hero, .contact-hero, .contact-grid, .service-list article, .cta { grid-template-columns: 1fr; }
   .about-strip { gap: 36px; }
   .about-strip img, .two-col-hero img { order: -1; aspect-ratio: 1.35 / 1; }
+  .two-col-hero { gap: 28px; }
+  .two-col-hero img { max-height: 270px; object-position: center; }
+  .about-founder img { max-height: 320px; object-position: center 38%; }
+  .image-edge-fade { max-height: 270px; }
+  .body-copy { gap: 16px; max-width: 36rem; }
+  .body-copy p, .page-hero p, .about-strip p, .process-grid p, .service-list p, .process-list p, .narrative p, .contact-details {
+    font-size: 14px;
+    line-height: 1.68;
+  }
   .process-list { grid-template-columns: 1fr; }
   .process-list article + article {
     border-left: 0;
     border-top: 1px solid var(--color-line);
   }
-  .service-list article { gap: 14px; padding: 28px 0; }
+  .service-list { border-top-color: rgba(22,22,22,0.12); }
+  .service-list article { gap: 12px; padding: 24px 0; }
+  .service-list h2 { font-size: clamp(22px, 7vw, 30px); line-height: 1.12; }
   .process-grid { grid-template-columns: 1fr; gap: 28px; }
   .process-grid article, .process-grid article + article { padding: 0 0 26px; border-left: 0; border-bottom: 1px solid var(--color-line); }
-  .process-list article { min-height: 0; padding: 24px 0; gap: 12px; }
+  .process-heading { margin-bottom: 18px; font-size: clamp(32px, 10vw, 44px); }
+  .process-copy { margin-bottom: 28px; text-align: left; }
+  .process-list { margin-top: 26px; }
+  .process-list article { min-height: 0; padding: 20px 0; gap: 10px; }
+  .process-list span { font-size: 20px; }
+  .process-list h2 { font-size: clamp(19px, 5.8vw, 24px); }
+  .narrative { gap: 18px; }
+  .narrative p { line-height: 1.72; }
+  .profile-link { width: 100%; min-height: 48px; justify-content: center; }
   .cta {
-    min-height: 420px;
+    min-height: 390px;
     background:
       linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.40) 46%, rgba(0,0,0,0.78) 100%),
       url("assets/courtyard.jpg");
@@ -665,12 +698,38 @@ h3 { font-size: 16px; font-weight: 500; }
     background-repeat: no-repeat;
   }
   .cta-image { display: none; }
-  .cta-content { grid-column: 1; padding: 48px 28px 58px; }
-  .contact-details { padding-right: 0; }
-  .contact-form { grid-template-columns: 1fr; padding-left: 0; padding-top: 34px; border-left: 0; border-top: 1px solid var(--color-line); }
+  .cta-content { grid-column: 1; padding: 42px 26px 50px; }
+  .contact-grid { gap: 0; }
+  .contact-details {
+    grid-template-rows: none;
+    gap: 16px;
+    padding-right: 0;
+    font-size: 15px;
+  }
+  .contact-item {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 14px;
+    min-height: 44px;
+    align-items: center;
+  }
+  .contact-item svg { width: 19px; height: 19px; margin-top: 0; }
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-left: 0;
+    padding-top: 26px;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+    font-size: 15px;
+  }
+  .contact-form input, .contact-form textarea {
+    min-height: 44px;
+    padding: 10px 0;
+  }
+  .contact-form textarea { height: 116px; min-height: 116px; }
   .contact-form .button, .contact-details .button { width: 100%; }
-  .site-footer { flex-direction: column; align-items: flex-start; padding: 22px 28px; }
-  .footer-links { display: grid; gap: 10px; }
+  .site-footer { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 26px; }
+  .footer-links { display: grid; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -699,7 +758,17 @@ h3 { font-size: 16px; font-weight: 500; }
 
 @media (max-width: 480px) {
   body { font-size: 15px; }
-  .hero { min-height: 660px; }
+  .site-header, .static-header { padding: 8px 16px; }
+  body:not([data-page="home"]) main { padding-top: 49px; }
+  .nav { top: 48px; padding-inline: 16px; transform: translateY(calc(-100% - 50px)); }
+  .hero { min-height: 585px; padding: 88px 22px 42px; }
+  .hero-content { max-width: 320px; }
+  .hero h1 { font-size: clamp(31px, 10.2vw, 41px); }
   .button { width: auto; min-height: 46px; padding-inline: 22px; font-size: 13px; }
-  .section, .page-hero { padding-left: 22px; padding-right: 22px; }
+  .section, .page-hero { padding: 40px 22px; }
+  .contact-hero { min-height: 440px; }
+  .contact-grid { padding-top: 38px; padding-bottom: 38px; }
+  .cta { min-height: 360px; }
+  .cta-content { padding: 38px 22px 46px; }
+  .site-footer { padding-inline: 22px; }
 }
