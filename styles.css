@@ -457,6 +457,79 @@ h3 { font-size: 16px; font-weight: 500; }
   align-items: stretch;
   border-top: 1px solid var(--color-line);
 }
+.consultation-section {
+  border-top: 0;
+  background: var(--color-white);
+}
+.consultation-intro {
+  display: grid;
+  align-content: start;
+  gap: 34px;
+  min-width: 0;
+}
+.consultation-mark {
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-warm-white);
+}
+.consultation-mark svg,
+.consultation-benefits svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.consultation-mark svg {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.6;
+}
+.consultation-copy {
+  display: grid;
+  gap: 18px;
+  max-width: 360px;
+}
+.consultation-copy h2 {
+  margin: 0;
+  font-size: clamp(25px, 2.1vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.consultation-copy p {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.consultation-benefits {
+  display: grid;
+  gap: 26px;
+  width: 100%;
+  max-width: 360px;
+  padding-top: 36px;
+  border-top: 1px solid var(--color-line);
+}
+.consultation-benefits::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  border-bottom: 1px solid var(--color-line);
+}
+.consultation-benefits p {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+.consultation-benefits svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.65;
+}
 .contact-details {
   display: grid;
   grid-template-rows: 1fr auto 1fr auto;
@@ -535,6 +608,18 @@ h3 { font-size: 16px; font-weight: 500; }
     padding-bottom: 0;
   }
 
+  .consultation-section {
+    --contact-column-padding: clamp(64px, 7vw, 104px);
+    grid-template-columns: 0.82fr 1.18fr;
+    min-height: 710px;
+    padding-top: clamp(64px, 6.5vw, 88px);
+    padding-bottom: clamp(64px, 6.5vw, 88px);
+  }
+
+  .consultation-intro {
+    padding: 0 var(--contact-column-padding);
+  }
+
   .contact-hero-copy span {
     display: block;
   }
@@ -583,36 +668,50 @@ h3 { font-size: 16px; font-weight: 500; }
 
   .contact-form {
     min-height: var(--contact-column-height);
-    grid-template-rows: repeat(3, auto) minmax(120px, auto) 1fr auto;
-    gap: 18px;
+    grid-template-rows: repeat(3, auto) minmax(156px, auto) auto;
+    gap: 30px;
     padding-right: var(--contact-column-padding);
     padding-left: var(--contact-column-padding);
-    font-size: 12px;
+    border-left: 1px solid var(--color-line);
+    font-size: 15px;
   }
 
   .contact-form input {
-    min-height: 58px;
-    padding: 10px 0 18px;
+    min-height: 62px;
+    padding: 0 24px;
   }
 
   .contact-form textarea {
-    height: 126px;
-    min-height: 126px;
-    padding: 10px 0 18px;
+    height: 116px;
+    min-height: 116px;
+    padding: 18px 24px;
   }
 
   .contact-form label {
-    font-size: 12px;
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border: 1px solid rgba(22, 22, 22, 0.22);
+    border-radius: 5px;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(47, 47, 45, 0.52);
   }
 
   .contact-form .button {
-    width: min(var(--contact-button-width), 100%);
-    min-height: 58px;
-    margin-top: 0;
-    align-self: end;
+    width: min(390px, 100%);
+    min-height: 70px;
+    margin-top: 10px;
+    align-self: start;
     justify-self: start;
-    padding: 0 30px;
-    font-size: 12px;
+    justify-content: space-between;
+    padding: 0 40px;
+    font-size: 17px;
   }
 
   .about-founder {
@@ -853,6 +952,50 @@ h3 { font-size: 16px; font-weight: 500; }
     border-left: 0;
     border-top: 1px solid var(--color-line);
     font-size: 15px;
+  }
+  .consultation-section {
+    gap: 34px;
+  }
+  .consultation-intro {
+    gap: 26px;
+  }
+  .consultation-mark {
+    width: 94px;
+    height: 94px;
+  }
+  .consultation-mark svg {
+    width: 48px;
+    height: 48px;
+  }
+  .consultation-copy,
+  .consultation-benefits {
+    max-width: none;
+  }
+  .consultation-copy h2 {
+    max-width: 330px;
+    font-size: clamp(23px, 6.1vw, 26px);
+  }
+  .consultation-copy p,
+  .consultation-benefits p {
+    max-width: 330px;
+    font-size: 15px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    border: 1px solid rgba(22, 22, 22, 0.22);
+    border-radius: 5px;
+    padding-inline: 16px;
+  }
+  .contact-form textarea {
+    padding-top: 14px;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(47, 47, 45, 0.52);
+  }
+  .contact-form .button {
+    justify-content: space-between;
+    padding-inline: 24px;
   }
   .contact-form input, .contact-form textarea {
     min-height: 44px;

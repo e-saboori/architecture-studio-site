@@ -65,7 +65,6 @@ function renderFooter() {
     <p>${escapeHtml(site.footer.copyright)}</p>
     <div class="footer-links">
       <a href="${escapeHtml(site.brand.addressHref)}" target="_blank" rel="noreferrer">${escapeHtml(site.brand.address)}</a>
-      <a href="mailto:${escapeHtml(site.brand.email)}">${escapeHtml(site.brand.email)}</a>
       <a href="${escapeHtml(site.footer.ctaHref)}">${escapeHtml(site.footer.ctaLabel)}</a>
     </div>
   `;
