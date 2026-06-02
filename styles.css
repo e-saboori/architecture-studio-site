@@ -525,6 +525,16 @@ h3 { font-size: 16px; font-weight: 500; }
 }
 
 @media (min-width: 861px) {
+  .contact-grid {
+    --contact-column-padding: clamp(48px, 5vw, 76px);
+    --contact-column-height: 590px;
+    --contact-button-width: 320px;
+    grid-template-columns: 1fr 1fr;
+    min-height: 700px;
+    padding-top: clamp(78px, 7vw, 112px);
+    padding-bottom: 0;
+  }
+
   .contact-hero-copy span {
     display: block;
   }
@@ -534,19 +544,12 @@ h3 { font-size: 16px; font-weight: 500; }
   }
 
   .contact-details {
-    min-height: 590px;
+    min-height: var(--contact-column-height);
     grid-template-rows: 1fr auto 1fr auto;
     align-content: stretch;
-    padding-right: clamp(48px, 5vw, 76px);
-    padding-left: clamp(48px, 5vw, 76px);
+    padding-right: var(--contact-column-padding);
+    padding-left: var(--contact-column-padding);
     font-size: 12px;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    min-height: 700px;
-    padding-top: clamp(78px, 7vw, 112px);
-    padding-bottom: 0;
   }
 
   .contact-list {
@@ -569,7 +572,7 @@ h3 { font-size: 16px; font-weight: 500; }
 
   .contact-details .button {
     grid-row: 4;
-    width: min(340px, 100%);
+    width: min(var(--contact-button-width), 100%);
     min-height: 58px;
     justify-self: start;
     align-self: end;
@@ -579,11 +582,11 @@ h3 { font-size: 16px; font-weight: 500; }
   }
 
   .contact-form {
-    min-height: 590px;
+    min-height: var(--contact-column-height);
     grid-template-rows: repeat(3, auto) minmax(120px, auto) 1fr auto;
     gap: 18px;
-    padding-right: clamp(48px, 5vw, 76px);
-    padding-left: clamp(48px, 5vw, 76px);
+    padding-right: var(--contact-column-padding);
+    padding-left: var(--contact-column-padding);
     font-size: 12px;
   }
 
@@ -599,11 +602,11 @@ h3 { font-size: 16px; font-weight: 500; }
   }
 
   .contact-form label {
-    font-size: clamp(12px, 0.95vw, 14px);
+    font-size: 12px;
   }
 
   .contact-form .button {
-    width: min(285px, 100%);
+    width: min(var(--contact-button-width), 100%);
     min-height: 58px;
     margin-top: 0;
     align-self: end;
