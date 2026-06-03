@@ -1043,6 +1043,7 @@ h3 { font-size: 16px; font-weight: 500; }
   .consultation-benefits {
     gap: 20px;
     padding: 22px 0;
+    border-bottom: 0;
   }
   .consultation-benefits .contact-item {
     font-size: 15px;
@@ -1054,7 +1055,7 @@ h3 { font-size: 16px; font-weight: 500; }
   .consultation-form {
     gap: 16px;
     padding-top: 26px;
-    border-top: 0;
+    border-top: 1px solid var(--color-line);
   }
   .consultation-form label {
     gap: 9px;
