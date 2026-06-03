@@ -94,43 +94,32 @@ function bindNavigation() {
 }
 
 function bindContactForm() {
-  document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
+  document.querySelector("#consultation-form")?.addEventListener("submit", (event) => {
     const form = event.currentTarget;
-    const phone = form.elements.phone;
-    const email = form.elements.email;
-    const phoneValue = phone?.value.trim() || "";
-    const emailValue = email?.value.trim() || "";
-    const phoneDigits = phoneValue.replace(/\D/g, "");
-    const phoneIsValid = Boolean(phoneValue) && phoneDigits.length >= 7 && /^[+()\d\s.-]+$/.test(phoneValue);
-    const emailIsValid = Boolean(emailValue) && email.checkValidity();
+    const error = form.querySelector("#form-error");
+    const name = form.elements.name?.value.trim() || "";
+    const message = form.elements.message?.value.trim() || "";
+    const phone = form.elements.phone?.value.trim() || "";
+    const email = form.elements.email?.value.trim() || "";
+    const phoneDigits = phone.replace(/\D/g, "");
+    const phoneIsValid = Boolean(phone) && phoneDigits.length >= 7 && phoneDigits.length <= 15 && /^[+()\d\s.-]+$/.test(phone);
+    const emailIsValid = Boolean(email) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    phone?.setCustomValidity("");
-    email?.setCustomValidity("");
+    if (error) error.textContent = "";
 
-    if (!phoneIsValid && !emailIsValid) {
-      email?.setCustomValidity("Please enter either a valid email or phone number.");
+    let errorMessage = "";
+    if (!name) {
+      errorMessage = "Please enter your name.";
+    } else if (!message) {
+      errorMessage = "Please enter a message.";
+    } else if ((email && !emailIsValid) || (phone && !phoneIsValid) || (!emailIsValid && !phoneIsValid)) {
+      errorMessage = "Please enter either a valid email address or a valid phone number.";
     }
 
-    if (phoneValue && !phoneIsValid) {
-      phone?.setCustomValidity("Please enter a valid phone number.");
-    }
+    if (!errorMessage) return;
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const formData = new FormData(form);
-    const subject = encodeURIComponent("Consultation session");
-    const fieldLines = [...form.querySelectorAll("input")].map((input) => {
-      const label = input.closest("label")?.querySelector("span")?.textContent || input.name;
-      return `${label}: ${formData.get(input.name) || ""}`;
-    });
-    const body = encodeURIComponent([...fieldLines, "", `${formData.get("message") || ""}`].join("\n"));
-
-    window.location.href = `mailto:${site.brand.email}?subject=${subject}&body=${body}`;
+    event.preventDefault();
+    if (error) error.textContent = errorMessage;
   });
 }
 

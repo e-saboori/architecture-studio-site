@@ -44,11 +44,13 @@
             </div>
           </div>
 
-          <form class="contact-form consultation-form">
+          <form id="consultation-form" class="contact-form consultation-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New Consultation Request from ECONSET Website" />
             <label><span>Name</span><input type="text" name="name" autocomplete="name" placeholder="Your full name" required /></label>
             <label><span>Phone</span><input type="tel" name="phone" autocomplete="tel" placeholder="Your phone number" /></label>
             <label><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="Your email address" /></label>
             <label><span>Message</span><textarea name="message" rows="6" placeholder="Tell us about your project..." required></textarea></label>
+            <p id="form-error" class="form-error" aria-live="polite"></p>
             <button class="button consultation-submit" type="submit"><span>Book a Consultation</span><span aria-hidden="true">&rarr;</span></button>
           </form>
         </section>
