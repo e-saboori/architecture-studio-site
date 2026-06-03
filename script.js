@@ -20,7 +20,7 @@ const site = {
   footer: {
     copyright: "\u00A9 2026 ECONSET Design",
     ctaLabel: "Book Consultation",
-    ctaHref: "mailto:Ehsan.ghassemlou@gmail.com?subject=Consultation%20session"
+    ctaHref: "contact.html#consultation"
   }
 };
 
